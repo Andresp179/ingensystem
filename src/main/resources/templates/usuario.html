@@ -29,7 +29,8 @@
                 <td th:text="${usuar.password}">Mostrar Password</td>  <!--El campo debe ser igual a la clase-->       
                 <td th:text="${usuar.rolusuario}">Mostrar Rol</td><!--El campo debe ser igual a la clase-->
                 <td th:text="${usuar.estado}">Mostrar Estado</td><!--El campo debe ser igual a la clase-->
-                <td><a th:href="@{/editar/} + ${usuar.idUsuario}" th:text="Editar"/></td>
+                <td><a th:href="@{/editar/} + ${usuar.idUsuario}" th:text="Editar"/></td><!--Una manera de usar el path-->
+                <td><a th:href="@{/eliminar (idUsuario= ${usuar.idUsuario})} " th:text="Eliminar"/></td><!--Otra manera de hacer el path-->
             </tr>
         </table>
     </div>

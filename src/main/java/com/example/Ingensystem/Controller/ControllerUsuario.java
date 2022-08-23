@@ -34,21 +34,24 @@ public class ControllerUsuario {
         return "agregar";
     }
 
-
-    @PostMapping("/guardar")// Guarda y vuelve a la pagina
-    public String guardar(usuario Usuario){
-      UserService.Guardar(Usuario);
-      return "redirect:/";
+    @PostMapping("/guardar") // Guarda y vuelve a la pagina
+    public String guardar(usuario Usuario) {
+        UserService.Guardar(Usuario);
+        return "redirect:/";
     }
 
     @GetMapping("/editar/{idUsuario}")
-    public String editar (usuario Usuario, Model Model){
-     Usuario=UserService.encuentraUsuario(Usuario);
-     Model.addAttribute("usuario", Usuario);
-     return "agregar";
+    public String editar(usuario Usuario, Model Model) {
+        Usuario = UserService.encuentraUsuario(Usuario);
+        Model.addAttribute("usuario", Usuario);
+        return "agregar";
     }
-   
 
-  
+    @GetMapping("/eliminar")// direccionamiento a eliminar con el idUsuario
+    public String eliminar(usuario Usuario) {
+        UserService.Eliminar(Usuario);
+        return "redirect:/";
+
+    }
 
 }
