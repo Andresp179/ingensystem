@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+</head>
+<body>
+    <h1>Inicio Spring</h1>    
+    <h1 th:text="${mensaje}"></h1><!--Mensaje es para traernos lo que esta en mensaje-->
+    <a th:href="@{/agregar}">Crear Usuario</a> <!---Para ir a crear usuario-->
+    <div th:if="${usuarios!=null and !usuarios.empty}">
+        <table border="1">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Cedula</th>
+                <th>Password</th>
+                <th>Rol</th>
+                <th>Estado</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+            </tr>
+            <tr th:each="usuar : ${usuarios}">
+                <td th:text="${usuar.nombre}">Mostrar Nombre</td> <!--El campo debe ser igual a la clase-->
+                <td th:text="${usuar.apellido}">Mostrar apellido</td> <!--El campo debe ser igual a la clase-->  
+                <td th:text="${usuar.cedula}">Mostrar Cedula</td><!--El campo debe ser igual a la clase-->
+                <td th:text="${usuar.password}">Mostrar Password</td>  <!--El campo debe ser igual a la clase-->       
+                <td th:text="${usuar.rolusuario}">Mostrar Rol</td><!--El campo debe ser igual a la clase-->
+                <td th:text="${usuar.estado}">Mostrar Estado</td><!--El campo debe ser igual a la clase-->
+                <td><a th:href="@{/editar/} + ${usuar.idUsuario}" th:text="Editar"/></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${usuarios == null or usuarios.empty}">
+        La lista de personas está vacía
+    </div>
+     
+   
+</body>
+</html>
