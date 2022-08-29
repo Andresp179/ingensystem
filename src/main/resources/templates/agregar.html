@@ -15,21 +15,27 @@
         <input type="hidden" name="idUsuario" th:field="*{idUsuario}"/>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" th:field="*{nombre}" />
+        <span th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</span><!--Para saber si hay errores-->
         <br/>
         <label for="apellido">Apellido:</label>
         <input type="text" name="apellido" th:field="*{apellido}" />
+        <span th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}">Error apellido</span><!--Para saber si hay errores-->
         <br/>
         <label for="cedula">Cedula:</label>
         <input type="text" name="cedula" th:field="*{cedula}" />
+        <span th:if="${#fields.hasErrors('cedula')}" th:errors="*{cedula}">Error Cedula</span><!--Para saber si hay errores-->
         <br/>
         <label for="password">Password:</label>
         <input type="text" name="password" th:field="*{password}" />
+        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error Password</span><!--Para saber si hay errores-->
         <br/>
         <label for="rol">Rol:</label>
-        <input type="text" name="rol" th:field="*{rolusuario}" />
+        <input type="text" name="rol" th:field="*{rolusuario}" />        
+        <span th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}">Error Roñ</span><!--Para saber si hay errores-->
         <br/>
         <label for="estado">Estado:</label>
         <input type="text" name="estado" th:field="*{estado}" />
+        <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">Error Rol</span><!--Para saber si hay errores-->
         <br/>
        <input type="submit" name="guardar" value="Guardar"/>
 

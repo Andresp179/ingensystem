@@ -1,12 +1,17 @@
 package com.example.Ingensystem.Controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import com.example.Ingensystem.Model.usuario;
 import com.example.Ingensystem.Servicio.UsuarioService;
+
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -14,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ControllerUsuario {
 
-    @Autowired
+    @Autowired // Para las dependencias.. Uso de memoria o cantidad de registros
     private UsuarioService UserService;
 
     @GetMapping("/")
@@ -35,12 +40,12 @@ public class ControllerUsuario {
     }
 
     @PostMapping("/guardar") // Guarda y vuelve a la pagina
-    public String guardar(usuario Usuario) {
+    public String guardar(@Valid usuario Usuario, Errors errors) {
         UserService.Guardar(Usuario);
         return "redirect:/";
     }
 
-    @GetMapping("/editar/{idUsuario}")
+    @GetMapping("/editar/{idUsuario}") // direccionamiento a editar
     public String editar(usuario Usuario, Model Model) {
         Usuario = UserService.encuentraUsuario(Usuario);
         Model.addAttribute("usuario", Usuario);

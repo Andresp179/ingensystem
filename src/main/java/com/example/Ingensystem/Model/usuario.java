@@ -1,13 +1,13 @@
 package com.example.Ingensystem.Model;
 
 import java.io.Serializable;
-
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+
 import lombok.Data;
 
 @Data
@@ -22,12 +22,25 @@ public class usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)      
     
-    private Long idUsuario;
-    private String nombre;
-    private String apellido;
-    private String cedula;
-    private String password;
+   
+    private Long idUsuario; 
+
+    @NotEmpty
+    private String nombre; 
+    
+    @NotEmpty
+    private String apellido;    
+
+    @NotEmpty
+    private String cedula; 
+    
+    @NotEmpty
+    private String password; 
+    
+    @NotEmpty
     private String rolusuario;
+    
+    @NotEmpty
     private String estado;    
 
 }
