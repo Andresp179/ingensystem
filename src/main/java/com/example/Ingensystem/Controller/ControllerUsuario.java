@@ -41,6 +41,10 @@ public class ControllerUsuario {
 
     @PostMapping("/guardar") // Guarda y vuelve a la pagina
     public String guardar(@Valid usuario Usuario, Errors errors) {
+       if(errors.hasErrors()){
+          return "agregar";
+       }
+
         UserService.Guardar(Usuario);
         return "redirect:/";
     }

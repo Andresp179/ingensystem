@@ -31,7 +31,7 @@
         <br/>
         <label for="rol">Rol:</label>
         <input type="text" name="rol" th:field="*{rolusuario}" />        
-        <span th:if="${#fields.hasErrors('rol')}" th:errors="*{rol}">Error Roñ</span><!--Para saber si hay errores-->
+        <span th:if="${#fields.hasErrors('rolusuario')}" th:errors="*{rolusuario}">Error Rol</span><!--Para saber si hay errores-->
         <br/>
         <label for="estado">Estado:</label>
         <input type="text" name="estado" th:field="*{estado}" />
